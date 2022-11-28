@@ -19,10 +19,17 @@
 # Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z
 # для всех значений предикат. ¬ - Отрицание ⋁ - логическое "Или" ⋀ - логическое "И"
 
-# x = 1
-# y = 2
-# z = 2
-# print(-(x or y or z) == -x and -y and - z)
+# xa = [True, False]
+# ya = [True, False]
+# za = [True, False]
+# for x in xa:
+#     for y in ya:
+#         for z in za:
+#             print(x,y,z)
+#             stmnt1 = not(x or y or z)
+#             stmnt2 = (not x) and (not y) and (not z)
+#             print(stmnt1 == stmnt2)
+
 
 # Напишите программу, которая принимает на вход координаты точки (X и Y),
 # причём X ≠ 0 и Y ≠ 0 и выдаёт номер четверти плоскости,
