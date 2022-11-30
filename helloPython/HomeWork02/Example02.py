@@ -8,14 +8,25 @@
 
 
 
-n = int(input())
-fact = 1
-final = list()
-revision = list()
-for i in range(1, n+1):
-    fact *= i
-    final.append(fact)
-    temp = i-1,'*',i     # Не понимаю как отобразить запись как в круглых скобках.
-    revision.append(temp)
+# n = int(input('\nВведите число из которого хотите получить факториал: '))
+# # fact = 1
+# # final = list()
+# # revision = list()
+# # for i in range(1, n+1):
+# #     fact *= i
+# #     final.append(fact)
+# #     temp = i-1,'*',i     # Не понимаю как отобразить запись как в круглых скобках.
+# #     revision.append(temp)
     
-print("Пусть N = ",n, ", тогда ", final, revision)
+# # print("Пусть N = ",n, ", тогда ", final, revision)
+
+
+import math
+
+def revision(n: int) -> str:
+    list = '1'
+    for i in range(2, n+1):
+        list += f'*{i}'
+    return list
+
+print(f"\nФакториал числа {n} = {[math.factorial(i) for i in range(1, n+1)]} {[revision(i) for i in range(1, n+1)]}\n")
