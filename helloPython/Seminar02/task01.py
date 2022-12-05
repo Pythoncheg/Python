@@ -28,8 +28,8 @@
 # абвгдабвгд -> 2
 # абв
 
-oneStr = input()
-twoStr = input()
+# oneStr = input()
+# twoStr = input()
 # count = 0
 # for i in range():
 #         finds=oneStr.find(twoStr)
@@ -37,8 +37,11 @@ twoStr = input()
 #             count+=1
 
 # print(count)
-print(oneStr.count(twoStr))
+# print(oneStr.count(twoStr))
 # x = oneStr.split(twoStr)
 # print(len(x)-1)
 
     # num = s1.find(s2)
+
+
+
