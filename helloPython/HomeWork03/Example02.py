@@ -9,6 +9,6 @@
 
 import random
 
-a= [random.randint(2, 9) for i in range(random.randint(1, 7))]
+a= [random.randint(2, 9) for i in range(random.randint(1, 12))]
 
 print(f'\nСписок = {a} => {[(a[i]*a[-i-1]) for i in range((len(a)+1)//2)]}')
