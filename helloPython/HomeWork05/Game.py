@@ -71,5 +71,4 @@ j = 1
 print("\nДля выхода нажмите Enter...")
 while j != 2:
     if keyboard.is_pressed('enter'):
-        j += 1
         break

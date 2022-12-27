@@ -23,10 +23,12 @@ n = int(input('\nВведите число из которого хотите п
 
 import math
 
-def revision(n: int) -> str:
-    list = '1'
-    for i in range(2, n+1):
-        list += f'*{i}'
-    return list
+# def revision(n: int) -> str:
+#     list = '1'
+#     for i in range(2, n+1):
+#         list += f'*{i}'
+#     return list
+
+# print(f"\nФакториал числа {n} = {[math.factorial(i) for i in range(1, n+1)]} {[revision(i) for i in range(1, n+1)]}\n")
 
 print(f"\nФакториал числа {n} = {[math.factorial(i) for i in range(1, n+1)]} {[revision(i) for i in range(1, n+1)]}\n")

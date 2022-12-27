@@ -17,3 +17,5 @@ with open("helloPython/HomeWork02/file.txt", "r") as f:
 
 multipl = list1[temp[0]]*list1[temp[1]]
 print(f'\nПроизведения чисел из списка по позициям {temp[0]} и {temp[1]}, указанным в file.txt равны: {multipl}\n')
+
+

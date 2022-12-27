@@ -5,11 +5,17 @@
 # *' 1 3 -> 2
 
 # a = [1, 2, 3, 4, 5, 7]
-
-def find(x):
-    for i in range(1, len(x)):
-        if x[i] - 1 != x[i-1]:
-            return x[i]-1
+# =============================================================================================
+# 
+# def find(x):
+#     for i in range(1, len(x)):
+#         if x[i] - 1 != x[i-1]:
+#             return x[i]-1
 
 b = list(map(int,(input().split())))
+print(b)
+find = lambda x: [x for i in len(x) if x[i] -1 != x[i-1]]
 print(find(b))
+
+
+# finish = lambda x: [(i, i**2) for i in x if i%2==0]
