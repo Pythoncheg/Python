@@ -1,6 +1,6 @@
 
 def new_contact():
-    x = input('Введите данные: \n')
+    x = input("Введите данные: ")
     return x
 
 
