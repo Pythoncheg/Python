@@ -1,4 +1,3 @@
-import model
 
 def write_data(value):
     with open("helloPython/Homework07/base.txt", 'a') as file1:
