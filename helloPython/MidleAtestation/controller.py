@@ -14,3 +14,5 @@ def button_click():
             break
         elif a == 5:
             model.delAll()
+        elif a == 6:
+            model.redactValue(View.inputing())
