@@ -38,6 +38,16 @@ def choice_action():
             print("Укажите заголовок заметки: ")
             return 6
         else: print("Не верная комманда")
-
+def confMsg(value):
+    if value==1:
+        print("\nЗаметка успешно добавлена.")
+    elif value==2:
+        print("\nКонец файла.")
+    elif value==3:
+        print("\nУспешно удалено.")
+    elif value==5:
+        print("\nФайл очищен.")
+    elif value==6:
+        print("\nУспешно изменено.")
 def printResult(value):
     print(*value, sep="\n")

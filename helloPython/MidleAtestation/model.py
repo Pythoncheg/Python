@@ -1,5 +1,6 @@
 import datetime
 import fileManager
+import View
 
 
 def newContent():
@@ -9,16 +10,13 @@ def newContent():
     listValue.append(input("Введите заголовок заметки: "))
     listValue.append(input("Введите содержание заметки: "))
     listValue.append(dt_str)
-    print("Заметка сохранена успешно!")
     return listValue
 def delValue(searchItem):
     newData = []
     currentData = fileManager.readFile()
     for row in currentData:
-        print(row.values())
         if row.get('Заголовок')==searchItem:
             currentData.remove(row)
-            print(f'Записка с заголовком {searchItem} успешно удалена!')
     flag=True
     for row in currentData:
         newData.append(row.get('Заголовок'))
@@ -35,34 +33,38 @@ def delValue(searchItem):
 def delAll():
     fileManager.writeEmptyFile()
 def redactValue(searchItem):
-    newData = []
+    editData = []
     currentData = fileManager.readFile()
     for row in currentData:
         if row.get('Заголовок')==searchItem:
-            currentData.remove(row)
             a = input("Хотите изменить заголовок? Y/N: ")
             if a=='y' or a=='Y':
-                newData.append(input("Введите новый заголовок:"))
+                editData.append(input("Введите новый заголовок:"))
             elif a=='n' or a=='N':
-                newData.append(row.get('Заголовок'))
-            else: print("Указывайте Y или N!")
+                editData.append(row.get('Заголовок'))
+            else:
+                print("Указывайте Y или N!")
+                redactValue(searchItem)
             a = input("Хотите изменить содержание? Y/N:")
             if a=='y' or a=='Y':
-                newData.append(input("Введите новое содержание:"))
-            elif a!='y' or a!='Y' or a!='N' or a!='n':
+                editData.append(input("Введите новое содержание:"))
+            elif a=='n' or a=='N':
+                editData.append(row.get('Содержание'))
+            else:
                 print("Укажите Y или N!")
-            else: newData.append(row.get('Содержание'))
-            newData.append(row.get('Дата создания'))
-            print(newData)
-
-    flag=True
-    for row in currentData:
-        newData.append(row.get('Заголовок'))
-        newData.append(row.get('Содержание'))
-        newData.append(row.get('Дата создания'))
-        if flag==True:
+                redactValue(searchItem)
+            editData.append(row.get('Дата создания'))
+            currentData.remove(row)
+    d=True
+    for rows in currentData:
+        newData = []
+        newData.append(rows.get('Заголовок'))
+        newData.append(rows.get('Содержание'))
+        newData.append(rows.get('Дата создания'))
+        if d==True:
             fileManager.writeFileAfterDel(newData)
-            flag=False
+            d=False
         else:
             fileManager.writeFile(newData)
-        newData = []
+    fileManager.writeFile(editData)
+
