@@ -5,7 +5,7 @@ import View
 
 def newContent():
     dt_now = datetime.datetime.now()
-    dt_str = dt_now.strftime('%d-%B-%Y %H:%M')
+    dt_str = dt_now.strftime('%d-%m %H:%M')
     listValue = []
     listValue.append(input("Введите заголовок заметки: "))
     listValue.append(input("Введите содержание заметки: "))
@@ -36,25 +36,34 @@ def redactValue(searchItem):
     editData = []
     currentData = fileManager.readFile()
     for row in currentData:
-        if row.get('Заголовок')==searchItem:
-            a = input("Хотите изменить заголовок? Y/N: ")
-            if a=='y' or a=='Y':
-                editData.append(input("Введите новый заголовок:"))
-            elif a=='n' or a=='N':
-                editData.append(row.get('Заголовок'))
-            else:
-                print("Указывайте Y или N!")
-                redactValue(searchItem)
-            a = input("Хотите изменить содержание? Y/N:")
-            if a=='y' or a=='Y':
-                editData.append(input("Введите новое содержание:"))
-            elif a=='n' or a=='N':
-                editData.append(row.get('Содержание'))
-            else:
-                print("Укажите Y или N!")
-                redactValue(searchItem)
+        if searchItem in row['Заголовок']:
+            View.print_value(row)
+        # if row.get('Заголовок') == searchItem:
+            while True:
+                a = input("Хотите изменить заголовок? Y/N: ")
+                if a=='y' or a=='Y':
+                    editData.append(input("Введите новый заголовок:"))
+                    break
+                elif a=='n' or a=='N':
+                    editData.append(row.get('Заголовок'))
+                    break
+                else:
+                    print("Указывайте Y или N!")
+            while True:
+                a = input("Хотите изменить содержание? Y/N:")
+                if a=='y' or a=='Y':
+                    editData.append(input("Введите новое содержание:"))
+                    break
+                elif a=='n' or a=='N':
+                    editData.append(row.get('Содержание'))
+                    break
+                else:
+                    print("Укажите Y или N!")
             editData.append(row.get('Дата создания'))
             currentData.remove(row)
+        # else:
+        #     print("Нет такой записи!")
+        #     return 0
     d=True
     for rows in currentData:
         newData = []
@@ -71,10 +80,9 @@ def redactValue(searchItem):
 def findValues(searchValues, list):
     count=0
     for row in list:
-        if row.get('Дата создания').startswith(searchValues):
+        if searchValues in row['Дата создания']:
             View.print_value(row)
             count+=1
-
     if count == 0:
         print("\nНет записей с такой датой!")
     else:

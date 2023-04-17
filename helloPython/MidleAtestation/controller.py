@@ -3,6 +3,7 @@ import model
 import fileManager
 from operator import itemgetter
 def button_click():
+    View.printHelp()
     while True:
         a= View.choice_action()
         if a == 1:
@@ -27,3 +28,5 @@ def button_click():
             sortList = sorted(newList, key=itemgetter('Дата создания'))
             View.printResult(sortList)
             View.confMsg(a)
+        elif a == 8:
+            View.printHelp()
