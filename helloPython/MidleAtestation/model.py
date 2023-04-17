@@ -68,3 +68,6 @@ def redactValue(searchItem):
             fileManager.writeFile(newData)
     fileManager.writeFile(editData)
 
+def sortList(notes):
+    return notes.get('Дата создания')
+

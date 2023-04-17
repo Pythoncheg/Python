@@ -8,7 +8,10 @@ def button_click():
             fileManager.writeFile(model.newContent())
             View.confMsg(a)
         elif a == 2:
-            View.printResult(fileManager.readFile())
+            newList = fileManager.readFile()
+            # View.printResult(fileManager.readFile())
+            # newList.sort(key=model.sortList())
+            View.printResult(newList)
             View.confMsg(a)
         elif a == 3:
             model.delValue(View.inputing())
