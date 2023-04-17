@@ -15,7 +15,7 @@ def delValue(searchItem):
     newData = []
     currentData = fileManager.readFile()
     for row in currentData:
-        if row.get('Заголовок')==searchItem:
+        if row.get('Заголовок') == searchItem:
             currentData.remove(row)
     flag=True
     for row in currentData:
@@ -68,6 +68,14 @@ def redactValue(searchItem):
             fileManager.writeFile(newData)
     fileManager.writeFile(editData)
 
-def sortList(notes):
-    return notes.get('Дата создания')
+def findValues(searchValues, list):
+    count=0
+    for row in list:
+        if row.get('Дата создания').startswith(searchValues):
+            View.print_value(row)
+            count+=1
 
+    if count == 0:
+        print("\nНет записей с такой датой!")
+    else:
+        print(f"\nКол-во найденых заметок: {count}")

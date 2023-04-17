@@ -7,7 +7,8 @@ def print_value(data):
     print(data)
 
 def choice_action():
-    print('\nДля создания новой заметки используйте "Add"\n'
+    print('\n Для вывода всех заметок используйте "All"\n'
+          'Для создания новой заметки используйте "Add"\n'
           'Для поиска по дате используйте "Find"\n'
           'Для удаления заметки используйте "Del"\n'
           'Для выхода используйте "q"\n'
@@ -37,6 +38,8 @@ def choice_action():
         elif a=='edit' or a=='Edit' or a=='EDIT':
             print("Укажите заголовок заметки: ")
             return 6
+        elif a=='all' or a=='All' or a=='ALL':
+            return 7
         else: print("Не верная комманда")
 def confMsg(value):
     if value==1:
