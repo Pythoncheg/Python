@@ -37,10 +37,11 @@ def redactValue(searchItem):
     currentData = fileManager.readFile()
     for row in currentData:
         if searchItem in row['Заголовок']:
+            print(f"\n выбран файл {searchItem}:\n")
             View.print_value(row)
         # if row.get('Заголовок') == searchItem:
             while True:
-                a = input("Хотите изменить заголовок? Y/N: ")
+                a = input("\nХотите изменить заголовок? Y/N: ")
                 if a=='y' or a=='Y':
                     editData.append(input("Введите новый заголовок:"))
                     break
@@ -50,7 +51,7 @@ def redactValue(searchItem):
                 else:
                     print("Указывайте Y или N!")
             while True:
-                a = input("Хотите изменить содержание? Y/N:")
+                a = input("\nХотите изменить содержание? Y/N:")
                 if a=='y' or a=='Y':
                     editData.append(input("Введите новое содержание:"))
                     break
